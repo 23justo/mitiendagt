@@ -1,0 +1,7 @@
+{% extends 'sb-admin-2/index.html' %}
+{% block title %}
+    {{request.user.profile.store.name}}
+{% endblock  %}
+{% block store_name %}
+    {{request.user.profile.store.name}}
+{% endblock store_name %}
