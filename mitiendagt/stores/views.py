@@ -11,7 +11,6 @@ class StoreView(LoginRequiredMixin, TemplateView):
 
     template_name = 'stores/home.html'
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['store'] = Store.objects.get(pk = self.request.user.profile.store.pk)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     return context
