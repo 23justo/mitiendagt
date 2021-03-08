@@ -8,7 +8,7 @@ class Product(models.Model):
     price = models.FloatField()
     # cost is the one who the providers gives to the store
     cost = models.FloatField()
-    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE, null=True)
+    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE, null=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 

@@ -1,0 +1,57 @@
+{% extends 'stores/home.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="container-fluid">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Listado de productos
+                            <a name="create" class="btn btn-success float-right" role="button" href="{% url 'products:ProductCreateView' %}">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th width="40%">Nombre</th>
+                                        <th>Costo</th>
+                                        <th>Precio</th>
+                                        <th width="20%">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Costo</th>
+                                        <th>Precio</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                {% for product in products %}
+                                    <tr>
+                                        <td>{{product.name}}</td>
+                                        <td>{{product.cost}}</td>
+                                        <td>{{product.price}}</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <a class="btn btn-primary" type="button" href="{% url 'products:ProductUpdateView' product.pk %}"><i class="fas fa-pencil-alt"></i></a>
+                                                <a class="btn btn-danger" type="button" href="{% url 'products:ProductDeleteView' product.pk %}"><i class="fas fa-trash-alt"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
