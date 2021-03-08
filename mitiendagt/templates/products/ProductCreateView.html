@@ -1,0 +1,44 @@
+{% extends 'stores/home.html' %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="container-fluid">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Crear un producto                            
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <form class="user" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" placeholder="Nombre" name="name">
+                                    <span class="text-danger">{% for error in form.name.errors %}{{ error }}{% endfor %}</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" placeholder="Costo" name="cost">
+                                    <span class="text-danger">{% for error in form.cost.errors %}{{ error }}{% endfor %}</span>
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" placeholder="Precio" name="price">
+                                    <span class="text-danger">{% for error in form.price.errors %}{{ error }}{% endfor %}</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                
+                                <button type="submit" class="btn btn-success btn-lg btn-block">
+                                    <i class="fas fa-save"></i> Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
