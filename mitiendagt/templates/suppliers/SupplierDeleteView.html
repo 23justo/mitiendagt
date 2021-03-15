@@ -7,7 +7,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Eliminar un producto                            
+                            Eliminar un proveedor                            
                         </h6>
                         
                     </div>
@@ -16,21 +16,23 @@
                             {% csrf_token %}
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" placeholder="Nombre" name="name" value="{{ product.name|default_if_none:"" }}" disabled>
+                                    <input type="text" class="form-control form-control-user" placeholder="Nombre" name="name" value="{{ supplier.name|default_if_none:"" }}" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" placeholder="Direccion" name="address" value="{{ supplier.address|default_if_none:"" }}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" placeholder="Costo" name="cost" value="{{ product.cost|default_if_none:"" }}" disabled>
+                                    <input type="text" class="form-control form-control-user" placeholder="Telefono" name="phone" value="{{ supplier.phone|default_if_none:"" }}" disabled>
                                 </div>
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" placeholder="Precio" name="price" value="{{ product.price|default_if_none:"" }}" disabled> 
+                                    <input type="text" class="form-control form-control-user" placeholder="email" name="email" value="{{ supplier.email|default_if_none:"" }}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                
-                            
-
                                 <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
                                     <i class="fas fa-trash"></i> Eliminar
                                 </button>
@@ -48,7 +50,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Estas seguro que deseas eliminar este producto?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Estas seguro que deseas eliminar este proveedor?</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
